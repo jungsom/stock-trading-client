@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import StockContainer from './container/stock';
 import Header from './container/header';
+import LoginContainer from './container/Login';
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <Header />
       <Routes>
         <Route path='/stock' element={<StockContainer />} />
+        <Route path='/my' element={<LoginContainer />} />
       </Routes>
     </BrowserRouter>
   );
