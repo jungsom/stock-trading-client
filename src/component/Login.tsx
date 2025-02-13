@@ -1,7 +1,7 @@
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 
-function LoginContainer() {
+function LoginForm() {
   return (
     <>
       <FloatingLabel controlId='floatingInput' label='이메일' className='mb-3'>
@@ -14,4 +14,4 @@ function LoginContainer() {
   );
 }
 
-export default LoginContainer;
+export default LoginForm;

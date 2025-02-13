@@ -1,44 +1,10 @@
-import React, { useState, useEffect } from 'react';
 import { Table } from 'react-bootstrap';
-import { io } from 'socket.io-client';
 import './StockList.css';
+import type { Stock } from '../interfaces/Stock';
+import useStockPrice from '../hooks/useStockPrice';
 
-interface Stock {
-  id: number;
-  name: string;
-  code: string;
-  category: string;
-  index: string;
-  latestHistory?: {
-    currentPrice: number;
-  };
-}
-
-interface StockListProps {
-  stocks: Stock[];
-}
-
-const StockList: React.FC<StockListProps> = ({ stocks }) => {
-  const [stockPrices, setStockPrices] = useState<{ [key: string]: number }>({});
-  const socket = io(import.meta.env.VITE_SERVER_URL); 
-
-  useEffect(() => {
-    socket.on('stock', (data) => {
-      console.log(`📩 Received stock :`, data);
-      setStockPrices((prevPrices) => ({
-        ...prevPrices,
-        [data.code]: data.currentPrice, 
-      }));
-    });
-
-    stocks.forEach((stock) => {
-      socket.emit('sent-stock', { code: stock.code });
-    });
-
-    return () => {
-      socket.disconnect(); 
-    };
-  }, [stocks]);
+const StockList = ({ stocks }: { stocks: Stock[] }) => {
+  const stockPrices = useStockPrice(stocks);
 
   return (
     <div className='stock-container'>
@@ -53,6 +19,7 @@ const StockList: React.FC<StockListProps> = ({ stocks }) => {
               <th>종목코드</th>
               <th>지수</th>
               <th>현재가</th>
+              <th>카테고리</th>
             </tr>
           </thead>
           <tbody>
@@ -61,7 +28,12 @@ const StockList: React.FC<StockListProps> = ({ stocks }) => {
                 <td>{stock.name}</td>
                 <td>{stock.code}</td>
                 <td>{stock.index}</td>
-                <td>{stockPrices[stock.code] ?? '조회 중...'}</td> {/* 가격 표시 */}
+                <td>
+                  {stockPrices[stock.code] ??
+                    stock.latestHistory?.currentPrice ??
+                    '조회 중...'}
+                </td>
+                <td>{stock.category}</td>
               </tr>
             ))}
           </tbody>
