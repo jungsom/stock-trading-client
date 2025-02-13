@@ -1,0 +1,29 @@
+.login-container {
+  margin-top: 60px;
+  margin-right: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-box {
+  background-color: #f7f7f7;
+  width: 100%;
+  max-width: 500px;
+  margin: 4%;
+  padding: 40px 70px;
+  border-radius: 12px; 
+  text-align: center;
+}
+
+.login-header {
+  margin-bottom: 40px;
+}
+
+.login-box .form-floating {
+  margin-bottom: 15px;
+}
+button {
+  width: 100%;
+  color: white;
+}

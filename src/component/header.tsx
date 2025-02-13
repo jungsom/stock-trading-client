@@ -6,13 +6,13 @@ import Navbar from 'react-bootstrap/Navbar';
 const Header = () => {
   return (
     <Navbar bg='light' expand='lg'>
-      <Container fluid>
+      <Container>
         <Navbar.Brand href='#home' className='me-auto'>
           주식 거래 프로그램
         </Navbar.Brand>
         <Navbar.Toggle aria-controls='basic-navbar-nav' />
         <Navbar.Collapse id='basic-navbar-nav'>
-          <Nav className='mx-auto'>
+          <Nav className='mx-auto gap-4'>
             <Nav.Link href='home'>홈</Nav.Link>
             <Nav.Link href='stock'>주식 골라보기</Nav.Link>
             <Nav.Link href='my'>내 주식</Nav.Link>
@@ -20,11 +20,12 @@ const Header = () => {
           <Form className='d-flex'>
             <FormControl
               type='search'
-              placeholder='Search'
+              placeholder='검색'
               className='me-2'
               aria-label='Search'
+              size='sm'
             />
-            <Button variant='outline-success'>Search</Button>
+            <Button variant='success' size='sm'>검색</Button>
           </Form>
         </Navbar.Collapse>
       </Container>
