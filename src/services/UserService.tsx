@@ -1,3 +1,4 @@
+import { setAccessToken } from '../helper/token';
 import { Login } from '../interfaces/User';
 
 export const login = async ({ email, password }: Login) => {
@@ -9,9 +10,12 @@ export const login = async ({ email, password }: Login) => {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ email, password })
+        body: JSON.stringify({ email, password }),
+        credentials: 'include'
       }
     );
+
+    setAccessToken(response.headers.get('Authorization') || '');
 
     if (!response.ok) {
       throw new Error('로그인에 실패했습니다.');
