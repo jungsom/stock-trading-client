@@ -1,10 +1,7 @@
-import StockList from '../component/StockList';
-import useStocks from '../hooks/useStock';
+import StockList from "../component/stock/StockList";
 
 const StockPage = () => {
-  const stocks = useStocks();
-
-  return <StockList stocks={stocks} />;
+  return <StockList />;
 };
 
 export default StockPage;

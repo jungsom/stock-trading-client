@@ -1,9 +1,10 @@
 import { Table } from 'react-bootstrap';
 import './StockList.css';
-import type { Stock } from '../interfaces/Stock';
-import useStockPrice from '../hooks/useStockPrice';
+import useStocks from '../../hooks/useStock';
+import useStockPrice from '../../hooks/useStockPrice';
 
-const StockList = ({ stocks }: { stocks: Stock[] }) => {
+const StockList = () => {
+  const stocks = useStocks();
   const stockPrices = useStockPrice(stocks);
 
   return (

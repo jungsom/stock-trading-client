@@ -2,9 +2,9 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import './Login.css';
 import { Button } from 'react-bootstrap';
-import { login } from '../services/UserService';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { login } from '../../services/UserService';
 
 function LoginForm() {
   const [email, setEmail] = useState('');
