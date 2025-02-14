@@ -7,15 +7,15 @@ const Header = () => {
   return (
     <Navbar bg='light' expand='lg'>
       <Container>
-        <Navbar.Brand href='#home' className='me-auto'>
+        <Navbar.Brand href='/' className='me-auto'>
           주식 거래 프로그램
         </Navbar.Brand>
         <Navbar.Toggle aria-controls='basic-navbar-nav' />
         <Navbar.Collapse id='basic-navbar-nav'>
           <Nav className='mx-auto gap-4'>
-            <Nav.Link href='home'>홈</Nav.Link>
+            <Nav.Link href='/'>홈</Nav.Link>
             <Nav.Link href='stock'>주식 골라보기</Nav.Link>
-            <Nav.Link href='my'>내 주식</Nav.Link>
+            <Nav.Link href='login'>내 주식</Nav.Link>
           </Nav>
           <Form className='d-flex'>
             <FormControl

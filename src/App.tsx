@@ -9,7 +9,9 @@ function App() {
       <Header />
       <Routes>
         <Route path='/stock' element={<StockPage />} />
-        <Route path='/my' element={<LoginPage />} />
+        <Route path='/login' element={<LoginPage />} />
+        <Route path='/my' element={<div>My Page</div>} />
+        <Route path='/' element={<div>Home Page</div>} />
       </Routes>
     </BrowserRouter>
   );
