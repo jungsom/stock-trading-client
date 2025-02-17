@@ -12,16 +12,28 @@ const Header = () => {
     navigate('/login');
   };
 
+  const handleMainPage = () => {
+    navigate('/');
+  } 
+
+  const handleStockPage = () => {
+    navigate('/stock');
+  }
+
+  const handleMyPage = () => {
+    navigate('/my');
+  }
+
   return (
     <Navbar bg='light' expand='lg'>
       <Container>
-        <Navbar.Brand href='/'>주식 거래 프로그램</Navbar.Brand>
+        <Navbar.Brand onClick={() => handleMainPage()}>주식 거래 프로그램</Navbar.Brand>
         <Navbar.Toggle aria-controls='basic-navbar-nav' />
         <Navbar.Collapse id='basic-navbar-nav'>
           <Nav className='mx-auto gap-3'>
-            <Nav.Link href='/'>홈</Nav.Link>
-            <Nav.Link href='stock'>주식 골라보기</Nav.Link>
-            <Nav.Link href='my'>내 계좌</Nav.Link>
+            <Nav.Link onClick={() => handleMainPage()}>홈</Nav.Link>
+            <Nav.Link onClick={() => handleStockPage()}>주식 골라보기</Nav.Link>
+            <Nav.Link onClick={() => handleMyPage()}>내 계좌</Nav.Link>
             <Form className='d-flex w-20'>
               <FormControl
                 type='search'
@@ -37,7 +49,7 @@ const Header = () => {
             </Form>
           </Nav>
           <Nav className='mr-auto'>
-            <Button href='/login' variant='primary' onClick={handleLogin}>
+            <Button href='/login' variant='primary' onClick={() => handleLogin()}>
               {' '}
               로그인{' '}
             </Button>

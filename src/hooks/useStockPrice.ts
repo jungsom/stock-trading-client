@@ -9,22 +9,24 @@ const useStockPrice = (stocks: Stock[]) => {
   useEffect(() => {
     const socket = socketRef.current;
 
-    socket.on('stock', (data: StockHistory) => {
+    const handleStockUpdate = (data: StockHistory) => {
       console.log(`📩 Received stock :`, data);
       setStockPrices((prevPrices) => ({
         ...prevPrices,
-        [data.code]: data.currentPrice,
+        [data.code]: data.currentPrice
       }));
-    });
+    };
+
+    socket.on('stock', handleStockUpdate);
 
     stocks.forEach((stock) => {
       socket.emit('sent-stock', { code: stock.code });
     });
 
     return () => {
-      socket.off('stock');
+      socket.disconnect();
     };
-  }, [stocks]);
+  }, []);
 
   return stockPrices;
 };

@@ -10,9 +10,6 @@ export const fetchNews = async (): Promise<any[]> => {
       }
     );
 
-    if (!response.ok) {
-      throw new Error(`HTTP 오류! 상태 코드: ${response.status}`);
-    }
 
     const data = await response.json(); 
     console.log("뉴스 데이터:", data);

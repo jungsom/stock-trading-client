@@ -2,10 +2,17 @@ import { Table } from 'react-bootstrap';
 import './StockList.css';
 import useStocks from '../../hooks/useStock';
 import useStockPrice from '../../hooks/useStockPrice';
+import { Link, useNavigate } from 'react-router-dom';
 
 const StockList = () => {
+  const navigate = useNavigate();
   const stocks = useStocks();
   const stockPrices = useStockPrice(stocks);
+
+  const handleStockInfo = (stockCode: string) => {
+    navigate(`/stock/${stockCode}`);
+  };
+
 
   return (
     <div className='stock-container'>
@@ -26,7 +33,7 @@ const StockList = () => {
           <tbody>
             {stocks.map((stock) => (
               <tr key={stock.id}>
-                <td>{stock.name}</td>
+                <td onClick={() => handleStockInfo(stock.code)} style={{cursor: 'pointer', color: 'Blue'}}>{stock.name}</td>
                 <td>{stock.code}</td>
                 <td>{stock.index}</td>
                 <td>
