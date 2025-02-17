@@ -2,7 +2,7 @@ import { Table } from 'react-bootstrap';
 import './StockList.css';
 import useStocks from '../../hooks/useStock';
 import useStockPrice from '../../hooks/useStockPrice';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const StockList = () => {
   const navigate = useNavigate();

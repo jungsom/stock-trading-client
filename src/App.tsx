@@ -4,6 +4,7 @@ import StockPage from './pages/StockPage';
 import LoginPage from './pages/LoginPage';
 import { isAuthenticated } from './helper/auth';
 import MainPage from './pages/MainPage';
+import StockDetailPage from './pages/StockDetailPage';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Header />
       <Routes>
         <Route path='/stock' element={<StockPage />} />
+        <Route path='/stock/:code' element={<StockDetailPage />} />
         <Route path='/login' element={<LoginPage />} />
         <Route
           path='/my'
