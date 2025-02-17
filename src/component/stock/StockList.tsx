@@ -20,7 +20,7 @@ const StockList = () => {
         <p>📈 현재 주식 종목</p>
       </div>
       <div className='stock-body'>
-        <Table responsive='lg' className='stock-table' variant='striped'>
+        <Table responsive='lg' className='stock-table'>
           <thead>
             <tr>
               <th>종목명</th>

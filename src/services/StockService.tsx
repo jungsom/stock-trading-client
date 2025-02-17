@@ -17,3 +17,4 @@ export const fetchStockDetail = async (code: string) => {
     throw new Error('주식 상세 정보를 받아올 수 없습니다.');
   }
 }
+
