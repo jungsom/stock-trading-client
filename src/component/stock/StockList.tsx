@@ -13,14 +13,13 @@ const StockList = () => {
     navigate(`/stock/${stockCode}`);
   };
 
-
   return (
     <div className='stock-container'>
       <div className='stock-header'>
         <p>📈 현재 주식 종목</p>
       </div>
       <div className='stock-body'>
-        <Table responsive='lg' className='stock-table'>
+        <Table responsive='lg' className='stock-table' striped bordered hover>
           <thead>
             <tr>
               <th>종목명</th>

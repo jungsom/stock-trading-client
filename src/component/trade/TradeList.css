@@ -1,0 +1,53 @@
+.order-list {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.order-list h3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  text-align: center;
+  padding-top: 10px;
+  font-size: 13px;
+}
+
+.order-list-content {
+  max-height: 135px;
+  overflow-y: auto;
+}
+
+.order-list-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.order-list-content li {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  text-align: center;
+  padding: 5px;
+  border-bottom: 1px solid #ccc;
+  font-size: 13px;
+}
+
+.buy {
+  background-color: rgba(0, 100, 255, 0.1);
+}
+
+.sell {
+  background-color: rgba(255, 0, 0, 0.1);
+}
+
+.order-list-content li:last-child {
+  border-bottom: none;
+}
+
+.order-list-content li:first-child {
+  border-top: 1px solid #ccc;
+}
+
+.order-list-content li:hover {
+  background-color: rgb(255, 255, 255);
+}

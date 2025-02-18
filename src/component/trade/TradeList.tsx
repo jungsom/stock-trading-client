@@ -1,35 +1,28 @@
 import useTrades from '../../hooks/useTrade';
-import { Table } from 'react-bootstrap';
+import './TradeList.css';
 
 const TradeList = ({ code }: { code: string }) => {
   const trades = useTrades(code);
 
   return (
     <>
-     <div style={{ overflowY: 'auto', maxHeight: '160px' }}>
-      <Table className='trade-table' size='sm' hover={true}>
-        <thead style={{ backgroundColor: '#ffffff' }}>
-          <tr>
-            <th style={{ fontSize: '1rem', fontWeight: '500' }}>가격 (원)</th>
-            <th style={{ fontSize: '1rem', fontWeight: '500' }}>수량 (주)</th>
-          </tr>
-        </thead>
-        <tbody>
-          {trades.map((trade) => {
-            const rowStyle =
-              trade.type === 'SELL'
-                ? { backgroundColor: '#e0f7fa' }
-                : { backgroundColor: '#ffebee' };
-
-            return (
-              <tr key={trade.id} style={rowStyle}>
-                <td  style={{ fontSize: '0.8rem', fontWeight: '500' }}>{trade.price}</td>
-                <td  style={{ fontSize: '0.8rem', fontWeight: '500' }}>{trade.quantity}</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </Table>
+      <div className='order-list'>
+        <h3>
+          <span>매도량</span>
+          <span>가격</span>
+          <span>매수량</span>
+        </h3>
+        <div className='order-list-content'>
+          <ul>
+            {trades.map((trade, index) => (
+              <li key={index} className={trade.type === 'BUY' ? 'buy' : 'sell'}>
+                <span>{trade.type === 'SELL' ? trade.quantity : '-'}</span>
+                <span>{trade.price} 원</span>
+                <span>{trade.type === 'BUY' ? trade.quantity : '-'}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </>
   );

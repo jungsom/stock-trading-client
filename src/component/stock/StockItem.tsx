@@ -37,9 +37,14 @@ const StockItem = () => {
                 height={200}
               />
             </div>
-            <div className='stock-item_2'>
-              <p> 호가창 </p>
-              <TradeList code={code} />
+            <div className='row-container_1'>
+              <div className='stock-item_2'>
+                <p> 호가창 </p>
+                <TradeList code={code} />
+              </div>
+              <div className='stock-item_2_1'>
+                <p> 체결 내역 </p>
+              </div>
             </div>
           </div>
           <div className='stock-item_3'>
