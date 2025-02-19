@@ -5,6 +5,7 @@ import { Button, Form, Tab, Tabs } from 'react-bootstrap';
 import TradeList from '../trade/TradeList';
 import StockGraph from './StockGraph';
 import TradeHistory from '../trade/TradeHistory';
+import TradeOrder from '../trade/TradeOrder';
 
 const StockItem = () => {
   const { code } = useParams();
@@ -41,44 +42,7 @@ const StockItem = () => {
           </div>
           <div className='stock-item_3'>
             <p> 매수/매도 주문창 </p>
-            <Tabs
-              defaultActiveKey='buy'
-              id='filled-tab-example'
-              className='mb-3'
-              fill
-            >
-              {/* 주문 탭 */}
-              <Tab eventKey='buy' title='주문'>
-                <div className='form-group'>
-                  <Form.Label>주문 유형</Form.Label>
-                  <Form.Select size='sm'>
-                    <option value='1'>일반 주문</option>
-                    <option value='2' disabled>
-                      예약 주문
-                    </option>
-                    <option value='3' disabled>
-                      조건 주문
-                    </option>
-                  </Form.Select>
-                </div>
-                <div className='form-group'>
-                  <Form.Label>구매 가격</Form.Label>
-                  <Form.Control type='price' id='inputprice' size='sm' />
-                </div>
-                <div className='form-group'>
-                  <Form.Label>수량</Form.Label>
-                  <Form.Control type='quantity' id='inputquantity' size='sm' />
-                </div>
-                <p style={{ marginBottom: '55px' }}>
-                  {' '}
-                  = 총 주문 금액: 200 만원{' '}
-                </p>
-                <Button variant='danger'>구매 예약하기</Button>
-              </Tab>
-
-              {/* 판매 탭 */}
-              <Tab eventKey='profile' title='판매'></Tab>
-            </Tabs>
+            <TradeOrder code={code} />
           </div>
         </div>
       </div>

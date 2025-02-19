@@ -7,6 +7,13 @@ export interface Trade {
   userId: number;
 }
 
+export interface TradeInput {
+  code: string;
+  quantity: number;
+  price: number;
+  type: 'BUY' | 'SELL';
+}
+
 export interface TradeHistory {
   id: number;
   code: string;
