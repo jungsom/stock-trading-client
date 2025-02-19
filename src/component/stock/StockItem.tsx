@@ -16,11 +16,11 @@ const StockItem = () => {
   return (
     <>
       <div className='stock-info-header'>
-        <div className='stock-detail'>
-          <p>{stockDetail?.name}</p>
-          <p>{code}</p>
-          <p>{stockDetail?.index}</p>
-          <p>{stockDetail?.category}</p>
+        <div className='stock-detail-1'>
+          <span>💰 {stockDetail?.name} </span>
+          <span>({code})</span>
+          <span>{stockDetail?.index},</span>
+          <span>{stockDetail?.category}</span>
         </div>
         <div className='stock-info-container'>
           <div className='row-container'>
@@ -53,8 +53,12 @@ const StockItem = () => {
                   <Form.Label>주문 유형</Form.Label>
                   <Form.Select size='sm'>
                     <option value='1'>일반 주문</option>
-                    <option value='2'>예약 주문</option>
-                    <option value='3'>조건 주문</option>
+                    <option value='2' disabled>
+                      예약 주문
+                    </option>
+                    <option value='3' disabled>
+                      조건 주문
+                    </option>
                   </Form.Select>
                 </div>
                 <div className='form-group'>
