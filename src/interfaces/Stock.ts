@@ -10,4 +10,9 @@ export interface Stock {
 export interface StockHistory {
   code: string;
   currentPrice: number;
+  highPrice: number;
+  lowPrice: number;
+  openPrice: number;
+  closePrice: number;
+  date: Date;
 }

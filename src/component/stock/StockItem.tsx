@@ -2,8 +2,9 @@ import { useParams } from 'react-router-dom';
 import useStockDetail from '../../hooks/useStockDetail';
 import './StockItem.css';
 import { Button, Form, Tab, Tabs } from 'react-bootstrap';
-import { LineChart } from '@mui/x-charts';
 import TradeList from '../trade/TradeList';
+import StockGraph from './StockGraph';
+import TradeHistory from '../trade/TradeHistory';
 
 const StockItem = () => {
   const { code } = useParams();
@@ -25,17 +26,7 @@ const StockItem = () => {
           <div className='row-container'>
             <div className='stock-item_1'>
               <p> 주가 그래프 </p>
-              <LineChart
-                xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
-                series={[
-                  {
-                    data: [2, 5.5, 2, 8.5, 1.5, 5],
-                    area: true
-                  }
-                ]}
-                width={880}
-                height={200}
-              />
+              <StockGraph code={code} />
             </div>
             <div className='row-container_1'>
               <div className='stock-item_2'>
@@ -44,6 +35,7 @@ const StockItem = () => {
               </div>
               <div className='stock-item_2_1'>
                 <p> 체결 내역 </p>
+                <TradeHistory code={code} />
               </div>
             </div>
           </div>
