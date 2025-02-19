@@ -8,9 +8,9 @@ const TradeHistory = ({ code }: { code: string }) => {
     <>
       <div className='order-list'>
         <h3>
-          <span>매도량</span>
+          <span>거래 유형</span>
           <span>가격</span>
-          <span>매수량</span>
+          <span>거래량</span>
         </h3>
         <div className='order-list-content' style={{ backgroundColor: '#d9ff9d'}}>
           <ul>

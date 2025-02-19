@@ -1,8 +1,9 @@
-import useTrades from '../../hooks/useTrade';
+import useTrade from '../../hooks/useTrade';
 import './TradeList.css';
 
 const TradeList = ({ code }: { code: string }) => {
-  const trades = useTrades(code);
+  const trades = useTrade(code);
+  console.log(trades);
 
   return (
     <>

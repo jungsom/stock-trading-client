@@ -1,4 +1,5 @@
 export interface Trade {
+  code: string;
   price: number;
   totalQuantity: number;
   type: 'BUY' | 'SELL';

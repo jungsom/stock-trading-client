@@ -35,7 +35,7 @@ const TradeOrder = ({ code }: { code: string }) => {
           className='mb-3'
           fill
         >
-          {/* 주문 탭 */}
+          {/* 구매 탭 */}
           <Tab eventKey='buy' title='구매'>
             <div className='form-group'>
               <Form.Label>구매 유형</Form.Label>
@@ -62,7 +62,9 @@ const TradeOrder = ({ code }: { code: string }) => {
           </Tab>
 
           {/* 판매 탭 */}
-          <Tab eventKey='profile' title='판매'></Tab>
+          <Tab eventKey='profile' title='판매'>
+            <p>판매할 주식이 없습니다. </p>
+          </Tab>
           <Button variant='danger' onClick={() => handleSubmit('SELL')}>판매 예약하기</Button>
         </Tabs>
     </>

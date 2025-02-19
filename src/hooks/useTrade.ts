@@ -1,15 +1,27 @@
 import { useEffect, useState } from 'react';
+import { io } from 'socket.io-client';
 import { Trade } from '../interfaces/Trade';
-import { fetchTrade } from '../services/TradeService';
 
-const useTrades = (code: string): Trade[] => {
-  const [trades, setTrades] = useState([]);
+const useTrade = (code: string) => {
+  const [trade, setTrade] = useState<Trade[]>([]);
 
   useEffect(() => {
-    fetchTrade(code).then(setTrades);
+    const socket = io(import.meta.env.VITE_SERVER_URL);
+
+    const handleTradeUpdate = (data: any[]) => {
+      console.log(`📩 Received trade :`, data);
+      setTrade(data);
+    };
+
+    socket.on('trade', handleTradeUpdate);
+
+    socket.emit('sent-trade', code);
+    return () => {
+      socket.disconnect();
+    };
   }, []);
 
-  return trades;
+  return trade;
 };
 
-export default useTrades;
+export default useTrade;
