@@ -41,7 +41,7 @@ const StockItem = () => {
             </div>
           </div>
           <div className='stock-item_3'>
-            <p> 매수/매도 주문창 </p>
+            <p> 주문하기 </p>
             <TradeOrder code={code} />
           </div>
         </div>

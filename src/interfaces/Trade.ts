@@ -1,10 +1,7 @@
 export interface Trade {
-  id: number;
-  code: string;
-  quantity: number;
   price: number;
+  totalQuantity: number;
   type: 'BUY' | 'SELL';
-  userId: number;
 }
 
 export interface TradeInput {

@@ -1,13 +1,12 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { io } from 'socket.io-client';
 import { Stock, StockHistory } from '../interfaces/Stock';
 
 const useStockPrice = (stocks: Stock[]) => {
   const [stockPrices, setStockPrices] = useState<{ [key: string]: number }>({});
-  const socketRef = useRef(io(import.meta.env.VITE_SERVER_URL));
 
   useEffect(() => {
-    const socket = socketRef.current;
+    const socket = io(import.meta.env.VITE_SERVER_URL)
 
     const handleStockUpdate = (data: StockHistory) => {
       console.log(`📩 Received stock :`, data);

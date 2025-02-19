@@ -16,9 +16,9 @@ const TradeList = ({ code }: { code: string }) => {
           <ul>
             {trades.map((trade, index) => (
               <li key={index} className={trade.type === 'BUY' ? 'buy' : 'sell'}>
-                <span>{trade.type === 'SELL' ? trade.quantity : '-'}</span>
+                <span>{trade.type === 'SELL' ? trade.totalQuantity : '-'}</span>
                 <span>{trade.price} 원</span>
-                <span>{trade.type === 'BUY' ? trade.quantity : '-'}</span>
+                <span>{trade.type === 'BUY' ? trade.totalQuantity : '-'}</span>
               </li>
             ))}
           </ul>

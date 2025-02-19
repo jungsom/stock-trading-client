@@ -33,11 +33,11 @@
 }
 
 .buy {
-  background-color: rgba(0, 100, 255, 0.1);
+  background-color: rgba(255, 0, 0, 0.1);
 }
 
 .sell {
-  background-color: rgba(255, 0, 0, 0.1);
+  background-color: rgba(0, 100, 255, 0.1);
 }
 
 .order-list-content li:last-child {
