@@ -1,0 +1,39 @@
+.user-history-container {
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 15px;
+}
+
+.user-history {
+  margin: 50px;
+  padding: 30px;
+}
+
+.custom-tab .nav-link.active {
+  background-color: #e0e0e075;
+  color: rgb(0, 0, 0);
+}
+
+.custom-tab .nav-link {
+  border-radius: 10px;
+  padding: 12px;
+  margin-bottom: 6px;
+  color: black;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.custom-tab .nav-link:hover {
+  background-color: #e0e0e075;
+}
+
+.history-title {
+  font-size: 20px;
+  font-weight: 300;
+  margin-bottom: 20px;
+  margin-left: 15px;
+  margin-top: -50px;
+}

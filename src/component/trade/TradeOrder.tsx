@@ -63,9 +63,29 @@ const TradeOrder = ({ code }: { code: string }) => {
 
           {/* 판매 탭 */}
           <Tab eventKey='profile' title='판매'>
-            <p>판매할 주식이 없습니다. </p>
+          <div className='form-group'>
+              <Form.Label>판매 유형</Form.Label>
+              <Form.Select size='sm'>
+                <option value='1'>일반 판매</option>
+                <option value='2' disabled>
+                  예약 판매
+                </option>
+                <option value='3' disabled>
+                  조건 판매
+                </option>
+              </Form.Select>
+            </div>
+            <div className='form-group'>
+              <Form.Label>판매 가격</Form.Label>
+              <Form.Control type='price' id='inputprice' size='sm' onChange={(e) => setPrice(Number(e.target.value))} />
+            </div>
+            <div className='form-group'>
+              <Form.Label>수량</Form.Label>
+              <Form.Control type='quantity' id='inputquantity' size='sm' onChange={(e) => setQuantity(Number(e.target.value))} />
+            </div>
+            <p style={{ marginBottom: '55px' }}> = 총 판매 금액: {price * quantity} 원 </p>
+            <Button variant='danger' onClick={() => handleSubmit('SELL')}>판매 예약하기</Button>
           </Tab>
-          <Button variant='danger' onClick={() => handleSubmit('SELL')}>판매 예약하기</Button>
         </Tabs>
     </>
     );

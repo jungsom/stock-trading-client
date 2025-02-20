@@ -3,7 +3,6 @@ import './TradeList.css';
 
 const TradeList = ({ code }: { code: string }) => {
   const trades = useTrade(code);
-  console.log(trades);
 
   return (
     <>

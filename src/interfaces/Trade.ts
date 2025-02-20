@@ -20,4 +20,5 @@ export interface TradeHistory {
   type: 'ALL_TRADE' | 'SPLIT_TRADE';
   seller: number;
   buyer: number;
+  createdAt: Date;
 }

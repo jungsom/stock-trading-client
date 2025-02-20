@@ -5,6 +5,7 @@ import LoginPage from './pages/LoginPage';
 import { isAuthenticated } from './helper/auth';
 import MainPage from './pages/MainPage';
 import StockDetailPage from './pages/StockDetailPage';
+import MyPage from './pages/MyPage';
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
           path='/my'
           element={
             isAuthenticated() ? (
-              <div>어서오세요. 마이페이지입니다.</div>
+              <MyPage /> 
             ) : (
               <Navigate to='/login' />
             )
