@@ -1,17 +1,24 @@
-import useAllStockPrices from '../../hooks/useAllStockPrice';
 import Chart from 'react-apexcharts';
+import useStockPrice from '../../hooks/useStockPrice';
+import { useEffect, useState } from 'react';
 
 const StockGraph = ({ code }: { code: string }) => {
-  const allStockPrices = useAllStockPrices(code) ?? [];
-  const stockPrices = allStockPrices.map(
-    (stockPrice) => stockPrice.currentPrice
-  );
-  const stockDates = allStockPrices.map((stockPrice) =>
-    new Date(stockPrice.date).toLocaleTimeString([], {
-      hour: '2-digit',
-      minute: '2-digit'
-    })
-  );
+  const stockPrice = useStockPrice(code);
+  const [stockPrices, setStockPrices] = useState<number[]>([]);
+  const [stockDates, setStockDates] = useState<string[]>([]);
+
+  useEffect(() => {
+    if (stockPrice) {
+      setStockPrices((prev) => [...prev, stockPrice.currentPrice]);
+      setStockDates((prev) => [
+        ...prev,
+        new Date(stockPrice.date).toLocaleTimeString([], {
+          hour: '2-digit',
+          minute: '2-digit'
+        })
+      ]);
+    }
+  }, [stockPrice]);
 
   const options: ApexCharts.ApexOptions = {
     chart: {

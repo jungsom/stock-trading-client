@@ -1,33 +1,27 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { io } from 'socket.io-client';
-import { Stock, StockHistory } from '../interfaces/Stock';
+import { StockHistory } from '../interfaces/Stock';
 
-const useStockPrice = (stocks: Stock[]) => {
-  const [stockPrices, setStockPrices] = useState<{ [key: string]: number }>({});
+const useStockPrice = (code: string) => {
+  const [stockPrice, setStockPrice] = useState<StockHistory>();
 
   useEffect(() => {
-    const socket = io(import.meta.env.VITE_SERVER_URL)
+    const socket = io(import.meta.env.VITE_SERVER_URL);
 
-    const handleStockUpdate = (data: StockHistory) => {
+    const handleStockUpdate = (data: any[]) => {
       console.log(`📩 Received stock :`, data);
-      setStockPrices((prevPrices) => ({
-        ...prevPrices,
-        [data.code]: data.currentPrice
-      }));
+      setStockPrice(data);
     };
 
     socket.on('stock', handleStockUpdate);
 
-    stocks.forEach((stock) => {
-      socket.emit('sent-stock', { code: stock.code });
-    });
-
+    socket.emit('sent-stock', code);
     return () => {
       socket.disconnect();
     };
   }, []);
 
-  return stockPrices;
+  return stockPrice;
 };
 
 export default useStockPrice;

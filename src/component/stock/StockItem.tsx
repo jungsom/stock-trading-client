@@ -1,7 +1,6 @@
 import { useParams } from 'react-router-dom';
 import useStockDetail from '../../hooks/useStockDetail';
 import './StockItem.css';
-import { Button, Form, Tab, Tabs } from 'react-bootstrap';
 import TradeList from '../trade/TradeList';
 import StockGraph from './StockGraph';
 import TradeHistory from '../trade/TradeHistory';
