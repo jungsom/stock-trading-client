@@ -28,20 +28,17 @@ function UserTradeHistory() {
               <Nav.Item>
                 <Nav.Link eventKey='third'>판매 내역</Nav.Link>
               </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey='fourth'>계좌 관리</Nav.Link>
-              </Nav.Item>
             </Nav>
           </Col>
           <Col sm={10}>
             <Tab.Content>
               <Tab.Pane eventKey='first'>
-                <div className="user-history-title"> 🛒 내 자산 </div>
+                <div className='user-history-title'> 🛒 내 자산 </div>
                 <div className='user-history-account'> </div>
               </Tab.Pane>
               <Tab.Pane eventKey='second'>
                 <div className='user-history-title'> 🛒 구매 내역 </div>
-                {buyerHistory.map((item) => (
+                {buyerHistory?.map((item) => (
                   <>
                     <div className='user-history-content'>
                       <span style={{ float: 'left' }}>
@@ -68,7 +65,7 @@ function UserTradeHistory() {
               </Tab.Pane>
               <Tab.Pane eventKey='third'>
                 <div className='user-history-title'> 🛒 판매 내역 </div>
-                {sellerHistory.map((item) => (
+                {sellerHistory?.map((item) => (
                   <>
                     <div className='user-history-content'>
                       <span style={{ float: 'left' }}>
