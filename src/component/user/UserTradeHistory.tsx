@@ -14,26 +14,36 @@ function UserTradeHistory() {
   }, []);
 
   return (
-    <div className='user-history'>
+    <div className='user-history-container'>
       <Tab.Container id='left-tabs-example' defaultActiveKey='first'>
         <Row>
           <Col sm={2}>
-            <Nav variant='pills' className='flex-column custom-tab'>
+            <Nav variant='pills' className='flex-column user-history-nav'>
               <Nav.Item>
-                <Nav.Link eventKey='first'>구매 내역</Nav.Link>
+                <Nav.Link eventKey='first'>내 자산</Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link eventKey='second'>판매 내역</Nav.Link>
+                <Nav.Link eventKey='second'>구매 내역</Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link eventKey='third'>판매 내역</Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link eventKey='fourth'>계좌 관리</Nav.Link>
               </Nav.Item>
             </Nav>
           </Col>
           <Col sm={10}>
             <Tab.Content>
               <Tab.Pane eventKey='first'>
-                <div className='history-title'> 🛒 구매 내역 </div>
+                <div className="user-history-title"> 🛒 내 자산 </div>
+                <div className='user-history-account'> </div>
+              </Tab.Pane>
+              <Tab.Pane eventKey='second'>
+                <div className='user-history-title'> 🛒 구매 내역 </div>
                 {buyerHistory.map((item) => (
                   <>
-                    <div className='user-history-container'>
+                    <div className='user-history-content'>
                       <span style={{ float: 'left' }}>
                         {new Date(item.createdAt).toLocaleString('ko-KR', {
                           month: '2-digit',
@@ -41,7 +51,6 @@ function UserTradeHistory() {
                           year: 'numeric'
                         })}
                       </span>
-                      {/* <span> {item.code} </span> */}
                       <span> {item.price * item.quantity}원 | </span>
                       <span> {item.quantity}주 </span>
                       <span style={{ float: 'right' }}>
@@ -57,11 +66,11 @@ function UserTradeHistory() {
                   </>
                 ))}
               </Tab.Pane>
-              <Tab.Pane eventKey='second'>
-                <div className='history-title'> 🛒 판매 내역 </div>
+              <Tab.Pane eventKey='third'>
+                <div className='user-history-title'> 🛒 판매 내역 </div>
                 {sellerHistory.map((item) => (
                   <>
-                    <div className='user-history-container'>
+                    <div className='user-history-content'>
                       <span style={{ float: 'left' }}>
                         {new Date(item.createdAt).toLocaleString('ko-KR', {
                           month: '2-digit',
@@ -69,7 +78,6 @@ function UserTradeHistory() {
                           year: 'numeric'
                         })}
                       </span>
-                      {/* <span> {item.code} </span> */}
                       <span> {item.price * item.quantity}원 | </span>
                       <span> {item.quantity}주 </span>
                       <span style={{ float: 'right' }}>
