@@ -8,7 +8,7 @@ const useStockPrice = (code: string) => {
   useEffect(() => {
     const socket = io(import.meta.env.VITE_SERVER_URL);
 
-    const handleStockUpdate = (data: any[]) => {
+    const handleStockUpdate = (data: StockHistory) => {
       console.log(`📩 Received stock :`, data);
       setStockPrice(data);
     };

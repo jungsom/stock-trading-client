@@ -1,8 +1,8 @@
-import useNews from '../../hooks/useNews';
+// import useNews from '../../hooks/useNews';
 import './NewsList.css';
 import { mockNews } from './NewsMock';
 const NewsList = () => {
-  const news = useNews();
+  // const news = useNews();
 
   return (
     <>

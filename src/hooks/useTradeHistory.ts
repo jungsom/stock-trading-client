@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { io } from 'socket.io-client';
-import { Trade, TradeHistory } from '../interfaces/Trade';
+import { TradeHistory } from '../interfaces/Trade';
 
 const useTradeHistory = (code: string) => {
   const [tradeHistory, setTradeHistory] = useState<TradeHistory[]>([]);

@@ -1,4 +1,4 @@
-import { Trade, TradeInput } from '../interfaces/Trade';
+import { TradeInput } from '../interfaces/Trade';
 
 export const postTrade = async (orderType: TradeInput) => {
   try {
