@@ -30,7 +30,6 @@ export const fetchTradeHistoryByUser = async (type: string) => {
         credentials: 'include'
       }
     );
-    console.log(response);
     return await response.json();
   } catch (error) {
     console.error(error);

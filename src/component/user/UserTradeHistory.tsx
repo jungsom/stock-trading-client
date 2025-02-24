@@ -3,6 +3,7 @@ import { fetchTradeHistoryByUser } from '../../services/TradeService';
 import { TradeHistory } from '../../interfaces/Trade';
 import './UserTradeHistory.css';
 import { Col, Nav, Row, Tab } from 'react-bootstrap';
+import UserAccount from './UserAccount';
 
 function UserTradeHistory() {
   const [buyerHistory, setBuyerHistroy] = useState<TradeHistory[]>([]);
@@ -33,7 +34,9 @@ function UserTradeHistory() {
           <Col sm={10}>
             <Tab.Content>
               <Tab.Pane eventKey='first'>
-                <div className='user-history-title'> 🛒 내 자산 </div>
+                <div className='user-history-title'> 🛒 현재 계좌 </div>
+                <UserAccount />
+                <div className='user-history-title'> 🛒 입출금 내역 </div>
                 <div className='user-history-account'> </div>
               </Tab.Pane>
               <Tab.Pane eventKey='second'>

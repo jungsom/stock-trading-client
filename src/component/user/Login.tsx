@@ -15,7 +15,7 @@ function LoginForm() {
     e.preventDefault();
     try {
       await login({ email, password });
-      navigate('/my');
+      navigate('/');
     } catch (error) {
       alert('로그인 실패');
     }

@@ -1,0 +1,20 @@
+.account-bank {
+  font-size: 14px;
+}
+
+.account-balance {
+  font-size: 20px;
+}
+
+.account-container {
+  display: flex;
+  padding: 15px 20px;
+  align-items: center; 
+  justify-content: space-between; 
+  border-bottom: 1px solid #ddd;
+  border-top: 1px solid #ddd;
+}
+
+.account-container-body button {
+  margin: 2.5px;
+}
