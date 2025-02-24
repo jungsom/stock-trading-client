@@ -72,7 +72,12 @@ function UserAccount() {
           >
             출금
           </Button>
-          <Modal show={show} onHide={handleClose}>
+          <Modal
+            show={show}
+            onHide={handleClose}
+            aria-labelledby='contained-modal-title-vcenter'
+            centered
+          >
             <Modal.Header closeButton>
               <Modal.Title id='contained-modal-title-vcenter'>
                 {transactionType === 'deposit'
