@@ -27,19 +27,20 @@ const StockList = () => {
           </thead>
           <tbody>
             {stocks.map((stock) => (
-              <tr key={stock.id}>
-                <td
-                  onClick={() => handleStockInfo(stock.code)}
-                  style={{ cursor: 'pointer', color: 'Blue' }}
-                >
-                  {stock.name}
-                </td>
-                <td>{stock.code}</td>
-                <td>{stock.index}</td>
-                <td>{stock.latestHistory?.currentPrice ?? '조회 중...'}</td>
-                <td>{stock.category}</td>
-              </tr>
-            ))}
+                <tr key={stock.id}>
+                  <td
+                    onClick={() => handleStockInfo(stock.code)}
+                    style={{ cursor: 'pointer', color: 'Blue' }}
+                  >
+                    {stock.name}
+                  </td>
+                  <td>{stock.code}</td>
+                  <td>{stock.index}</td>
+                  <td>{stock.latestHistory?.currentPrice ?? '조회 중...'}</td>
+                  <td>{stock.category}</td>
+                </tr>
+              )
+            )}
           </tbody>
         </Table>
       </div>

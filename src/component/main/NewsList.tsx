@@ -1,6 +1,7 @@
 // import useNews from '../../hooks/useNews';
 import './NewsList.css';
 import { mockNews } from './NewsMock';
+
 const NewsList = () => {
   // const news = useNews();
 
@@ -14,7 +15,10 @@ const NewsList = () => {
               <img src={article.thumbnail_url} />
             </div>
             <div className='news-content'>
-              <a className='news-content-1' href={article.content_url}> {article.title} </a>
+              <a className='news-content-1' href={article.content_url}>
+                {' '}
+                {article.title}{' '}
+              </a>
               <div className='news-content-2'> {article.summary} </div>
               <div className='news-content-3'>
                 {' '}

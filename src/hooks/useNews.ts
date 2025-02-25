@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { fetchNews } from '../services/NewsService';
+import { News } from '../interfaces/News';
 
 const useNews = () => {
-  const [news, setNews] = useState<any[]>([]);
+  const [news, setNews] = useState<News[]>();
 
   useEffect(() => {
     const getNews = async () => {
